@@ -28,7 +28,7 @@ class serverdensity {
 
 		exec { "server-density-apt-list":
 			path => "/bin:/usr/bin",
-			command => "echo 'deb http://www.serverdensity.com/downloads/linux/debian lenny main' >> /etc/apt/sources.list;apt-get update",
+			command => "echo 'deb http://www.serverdensity.com/downloads/linux/deb all main' >> /etc/apt/sources.list;apt-get update",
 			unless => "cat /etc/apt/sources.list | grep -i serverdensity",
 			require => Exec["server-density-apt-key"],
 		}
